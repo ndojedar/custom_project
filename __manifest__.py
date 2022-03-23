@@ -20,13 +20,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','project'],
+    'depends': ['base', 'sale', 'project', 'pc_project_base'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/project_view.xml',
-        # 'views/templates.xml',
+        # 'views/project_kpis.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

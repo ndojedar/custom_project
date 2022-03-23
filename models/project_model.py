@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields 
+from odoo import models, fields, _ 
 
 
 class CustomProject(models.Model):
@@ -13,3 +13,5 @@ class CustomProject(models.Model):
           readonly=True, 
           store=True
           )
+
+    
