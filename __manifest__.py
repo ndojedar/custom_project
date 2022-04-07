@@ -20,13 +20,18 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale', 'project', 'pc_project_base'],
+    'depends': ['base', 'sale', 'project', 'pc_project_base', 'pc_invoice_stages'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
+        'data/ir_sequence_data.xml',
         'views/project_view.xml',
-        # 'views/project_kpis.xml',
+        'views/albaran_project_button.xml',
+        'views/albaran_project_view.xml',
+        'report/albaran_report_template.xml',
+        'report/albaran_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

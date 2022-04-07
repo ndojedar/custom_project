@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+    <record id="custom_project.report_albaran_project" model="ir.actions.report">
+    <field name="attachment" eval="False"/>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" ref="custom_project.model_project_albaran"/>
+    <field name="binding_type">report</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">project.albaran</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Imprimir Albarán</field>
+    <field name="paperformat_id" eval="False"/>
+    <field name="report_name">custom_project.albaran_project</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  </data>
+</odoo>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="albaran_project_form_view" model="ir.ui.view">
+        <field name="name">albaran.project.form.view</field>
+        <field name="model">project.albaran</field>
+        <field name="arch" type="xml">
+            <form string="Albarán">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Nº de albarán"/>
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="tipo_albaran" required="1" widget="radio" options="{'horizontal': true}"/>
+                            <field name="partner_id" 
+                                   widget="res_partner_many2one" 
+                                   context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" 
+                                   options="{'always_reload': True}"/>
+                            <field name="partner_id_adr" 
+                                   widget="res_partner_many2one" 
+                                   context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" 
+                                   options="{'always_reload': True}"/>
+                        </group>
+                        <group>
+                            <field name="fecha_alb" required="1"/>
+                            <field name="project_id"/>
+                            <field name="saleorder_id"/>
+                            <field name="ref_cliente"/>
+                            <field name="resp_project_id"/>
+                            <field name="bam_id"/>
+                        </group>
+                    </group>
+                    <field name="comentarios" placeholder="Comentarios"/>
+                    <notebook>
+                        <page string="Líneas de albarán">
+                            <group>
+                                <field name="albaranes_lines_ids"  nolabel="1" widget="one2many">
+                                    <tree string="Líneas de albarán" editable="bottom">
+                                        <field name="id" invisible="1"/>
+                                        <field name="concepto"/>
+                                        <field name="cantidad"/>
+                                        <field name="precio" widget="monetary"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <!--<div class="oe_chatter">
+                </div>-->
+            </form>
+        </field>
+    </record>
+
+    <record id="albaran_project_tree_view" model="ir.ui.view">
+        <field name="name">albaran.project.tree.view</field>
+        <field name="model">project.albaran</field>
+        <field name="arch" type="xml">
+            <tree string="Información de Albaranes" create="false">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="project_id"/>
+                <field name="tipo_albaran"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

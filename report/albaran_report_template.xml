@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="albaran_project">
+            <t t-name="custom_project.albaran_project">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="web.external_layout">
+                            <t t-value="o.with_context(lang=lang)"/>
+                            <div class="container">
+                                <div class="row addres">
+                                    <div class="col-5">
+                                        <strong>Razón Social:</strong>
+                                        <div t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                                        <p>CIF: <span t-field="o.partner_id.vat"/></p>
+                                    </div>
+                                    <div class="col col-5 offset-2">
+                                        <strong>Dirección del entrega:</strong>
+                                        <div t-field="o.partner_id_adr" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                                        <p>CIF: <span t-field="o.partner_id_adr.vat"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="page">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h6>
+                                            <span>Nº de albarán:</span>
+                                            <strong><span t-field="o.name" t-options="{'widget': 'text'}"/></strong>
+                                        </h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <h6>
+                                            <span>Fecha Albarán:</span>
+                                            <strong><span t-field="o.fecha_alb"/></strong>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div id="informations" class="row mt32 mb32">
+                                  <div class="col-auto mw-100 mb-2" t-if="o.ref_cliente" name="customer_ref">
+                                    <strong>Referencia del cliente:</strong>
+                                    <p class="m-0" t-field="o.ref_cliente"/>
+                                </div>
+                                <div class="col-auto mw-100 mb-2" t-if="o.project_id.name" name="project_name">
+                                    <strong>Proyecto:</strong>
+                                    <p class="m-0" t-field="o.project_id.name"/>
+                                </div>
+                                <div class="col-auto mw-100 mb-2" t-if="o.resp_project_id" name="resp_project_name">
+                                    <strong>Responsable del proyecto:</strong>
+                                    <p class="m-0" t-field="o.resp_project_id"/>
+                                </div>
+                            </div>
+                            <table class="table table-sm o_main_table" name="albaran_line_table">
+                                <thead>
+                                    <tr>
+                                        <th name="th_description" class="text-left">
+                                            <span>CONCEPTO</span>
+                                        </th>
+                                        <th name="th_quantity" class="text-center">
+                                            <span>CANTIDAD</span>
+                                        </th>
+                                        <th name="th_priceunit" class="text-right">
+                                            <span>IMPORTE</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="invoice_tbody">
+                                    <tr t-foreach="o.albaranes_lines_ids" t-as="line">
+                                        <td class="text-left">
+                                            <span t-field="line.concepto" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="line.cantidad"/>
+                                        </td>
+                                        <td class="text-right o_price_total">
+                                            <span class="text-nowrap" t-field="line.precio"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <t t-if="o.comentarios">
+                                <div class="row" style="margin-left:3px; margin-right:3px">
+                                    <span>
+                                        <strong>Comentarios:</strong>
+                                    <br/>
+                                    </span>
+                                    <span t-field="o.comentarios"/>
+                                </div>
+                            </t>
+                            <br/>
+                            <div class="clearfix">
+                                <div class="row" style="position: relative;">
+                                    <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+                                        <table class="table table-sm align-bottom" style="page-break-inside: avoid;">
+                                            <tr height="150px" >
+                                                <td style="text-align:center; background-color: #FFFFFF">
+                                                    <strong>Firma y Sello</strong>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-black">
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </t>
+
+        </template>
+    </data>
+</odoo>
