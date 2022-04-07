@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_custom_project_custom_project,custom_project.custom_project,model_custom_project_custom_project,base.group_user,1,1,1,1
+50,custom_project.custom_project,model_custom_project_custom_project,base.group_user,1,1,1,1
 
-rp_project_albaran,custom_project.project.albaran,model_custom_project_project_albaran,assa_permisos.group_category_rp,1,1,1,1
-rp_project_albaran_lines,custom_project.project.rp_project_albaran_lines,model_custom_project_project_albaran_lines,assa_permisos.group_category_rp,1,1,1,1
+51,custom_project.project_albaran,model_custom_project_project_albaran,assa_permisos.group_category_rp,1,1,1,1
+52,custom_project.project_albaran_lines,model_custom_project_project_albaran_lines,assa_permisos.group_category_rp,1,1,1,1
