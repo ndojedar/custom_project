@@ -13,27 +13,31 @@
                                     <div class="col-5">
                                         <strong>Razón Social:</strong>
                                         <div t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
-                                        <p>CIF: <span t-field="o.partner_id.vat"/></p>
                                     </div>
                                     <div class="col col-5 offset-2">
                                         <strong>Dirección del entrega:</strong>
                                         <div t-field="o.partner_id_adr" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
-                                        <p>CIF: <span t-field="o.partner_id_adr.vat"/></p>
                                     </div>
                                 </div>
                             </div>
                             <br/>
                             <div class="page">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <h6>
                                             <span>Nº de albarán:</span>
                                             <strong><span t-field="o.name" t-options="{'widget': 'text'}"/></strong>
                                         </h6>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-64">
                                         <h6>
-                                            <span>Fecha Albarán:</span>
+                                            <span>Tipo de albarán:</span>
+                                            <strong><span t-field="o.tipo_albaran"/></strong>
+                                        </h6>
+                                    </div>
+                                    <div class="col-64">
+                                        <h6>
+                                            <span>Fecha de albarán:</span>
                                             <strong><span t-field="o.fecha_alb"/></strong>
                                         </h6>
                                     </div>
@@ -92,6 +96,7 @@
                                     <span t-field="o.comentarios"/>
                                 </div>
                             </t>
+                            <br/>
                             <br/>
                             <div class="clearfix">
                                 <div class="row" style="position: relative;">
