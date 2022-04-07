@@ -29,13 +29,13 @@
                                             <strong><span t-field="o.name" t-options="{'widget': 'text'}"/></strong>
                                         </h6>
                                     </div>
-                                    <div class="col-64">
+                                    <div class="col-4">
                                         <h6>
                                             <span>Tipo de albarán:</span>
                                             <strong><span t-field="o.tipo_albaran"/></strong>
                                         </h6>
                                     </div>
-                                    <div class="col-64">
+                                    <div class="col-4">
                                         <h6>
                                             <span>Fecha de albarán:</span>
                                             <strong><span t-field="o.fecha_alb"/></strong>
